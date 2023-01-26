@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内存泄漏分析</title>
+</head>
+<body>
+<button id="btn">模拟内存泄漏</button>
+</body>
+<script>
+    window.onload = function () {
+        console.log("页面onload完成...")
+        const btn = document.getElementById("btn")
+        let arr = []
+        btn.onclick=function (){
+            console.log("按钮点击")
+            arr = [...arr,new Array(20000).fill("测试内存泄漏的文本")]
+        }
+    }
+</script>
+</html>
