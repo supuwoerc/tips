@@ -6,28 +6,32 @@
         <button @click="updateObjectName">点击修改count</button>
     </Card>
 </template>
-<script lang='ts'>
+<script lang="ts">
 // https://cn.vuejs.org/api/reactivity-core.html#ref
-import { defineComponent, Ref, ref } from 'vue';
-import Card from '../template/Card.vue';
+import { defineComponent, Ref, ref, reactive } from "vue";
+import Card from "../template/Card.vue";
 export default defineComponent({
     name: "RefApi",
     components: { Card },
     setup() {
-        const count: Ref<number> = ref<number>(-1)
+        const count: Ref<number> = ref<number>(-1);
         const updateCount = () => {
-            count.value++
-        }
+            count.value++;
+        };
         const object = ref({
-            name: "对象的名称"
-        })
+            name: "对象的名称",
+        });
         const updateObjectName = () => {
-            object.value.name = "修改后的名称"
-        }
-        return { count, updateCount, object, updateObjectName }
-    }
-})
-</script>
-<style>
+            object.value.name = "修改后的名称";
+        };
 
-</style>
+        return {
+            count,
+            updateCount,
+            object,
+            updateObjectName,
+        };
+    },
+});
+</script>
+<style></style>
